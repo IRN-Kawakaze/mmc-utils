@@ -116,6 +116,15 @@ static struct Command commands[] = {
 		"Enable write reliability per partition for the <device>.\nDry-run only unless -y or -c is passed.\nUse -c if more partitioning settings are still to come.\nNOTE!  This is a one-time programmable (unreversible) change.",
 	  NULL
 	},
+	{ do_write_reliability_set_register, -2,
+	  "write_reliability set_register", "<partition-mask> " "<device>\n"
+		"Set the write-reliability register (WR_REL_SET) for the <device>.\n"
+		"User area=bit0, GP1=bit1, GP2=bit2, GP3=bit3, GP4=bit4\n"
+		"e.g setting register to 0x03 will set 'User Area' and 'GP1' partitions \n"
+		"with write-reliability, and all others without write-reliability.\n"
+		"NOTE!  This is a one-time programmable (irreversible) change.",
+	  NULL
+	},
 	{ do_status_get, -1,
 	  "status get", "<device>\n"
 	  "Print the response to STATUS_SEND (CMD13).",
